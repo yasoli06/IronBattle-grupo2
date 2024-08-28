@@ -4,16 +4,13 @@ public class Character {
     private int hp;
     private boolean isAlive = true;
 
-// Constructor
+    // Constructor
     public Character(String name, int hp) {
         if(puntosDeVida <= 0){
             puntosDeVida = 1;
         }
         this.name = name;
         this.hp = hp;
-
-        System.out.println("hola");
-
     }
 
     public String getName() {
@@ -38,6 +35,12 @@ public class Character {
 
     public void setHp(int hp) {
         this.hp = hp;
+        // Actualiza el estado de isAlive basado en el valor de hp
+        if(this.hp > 0) {
+            this.isAlive = true;
+        } else {
+            this.isAlive = false;
+        }
     }
 
     public boolean isAlive() {
