@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Warrior extends Character {
     private int stamina;
     private int strength;
@@ -24,6 +26,7 @@ public class Warrior extends Character {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
 }
 
 

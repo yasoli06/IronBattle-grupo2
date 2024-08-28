@@ -11,6 +11,9 @@ public class Character {
         }
         this.name = name;
         this.hp = hp;
+
+        System.out.println("hola");
+
     }
 
     public String getName() {
