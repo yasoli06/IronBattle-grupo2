@@ -1,4 +1,6 @@
-public class Character {
+package main;
+
+public abstract class Character implements Attacker {
     private String Id;
     private String name;
     private int hp;
@@ -6,8 +8,8 @@ public class Character {
 
     // Constructor
     public Character(String name, int hp) {
-        if(puntosDeVida <= 0){
-            puntosDeVida = 1;
+        if(hp <= 0){
+            hp = 1;
         }
         this.name = name;
         this.hp = hp;

@@ -1,3 +1,5 @@
+package main;
+
 import java.util.Random;
 
 public class Warrior extends Character {
@@ -43,5 +45,5 @@ public class Warrior extends Character {
             }
         }
     }
-// MIRAR EL METDO PARA IMPLEMENTAR EL GET IS ALIVE
+// MIRAR EL METODO PARA IMPLEMENTAR EL GET IS ALIVE
 }
