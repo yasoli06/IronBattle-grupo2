@@ -21,6 +21,9 @@ public class Main {
         System.out.println("Player 2: " + player2.getName() + " is ready for battle!");
 
         // Aquí es donde podrías comenzar la simulación de la batalla entre player1 y player2
+        // Añadimos simulación de combate por turnos
+        Combat combat = new Combat(player1, player2);
+        combat.startBattle();
 
         scanner.close();
     }
