@@ -12,38 +12,36 @@ public class Main {
         System.out.println("The Mage casts Fireball.");
 
 
-        System.out.println("Which will be your champion? A Warrior or a Mage. Respond with 'w' for Warrior or 'm' for Mage.");
-
-
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine().trim();
 
+        Character player1 = createCharacter(scanner);
+        Character player2 = createCharacter(scanner);
+
+        System.out.println("Player 1: " + player1.getName() + " is ready for battle!");
+        System.out.println("Player 2: " + player2.getName() + " is ready for battle!");
+
+        // Aquí es donde podrías comenzar la simulación de la batalla entre player1 y player2
+
+        scanner.close();
+    }
+
+    private static Character createCharacter(Scanner scanner) {
+        System.out.println("Which will be your champion? A Warrior or a Mage. Respond with 'w' for Warrior or 'm' for Mage.");
+        String userInput = scanner.nextLine().trim();
 
         if ("w".equalsIgnoreCase(userInput)) {
             System.out.println("You have chosen the Warrior.");
-            //crear un guerrero
-
-            System.out.println("Ponle nombre a tu guerrero");
-            String nameWarrior1 = scanner.nextLine();
-
-            Warrior warrior1 = new Warrior(nameWarrior1);
-
-            System.out.println("Warrior created with Name: " + warrior1.getName() +
-                    ", HP: " + warrior1.getHp() +
-                    ", Strength: " + warrior1.getStrength() +
-                    ", Stamina: " + warrior1.getStamina());
-
+            System.out.println("Ponle nombre a tu guerrero:");
+            String name = scanner.nextLine();
+            return new Warrior(name);
         } else if ("m".equalsIgnoreCase(userInput)) {
             System.out.println("You have chosen the Mage.");
-
-            System.out.println("Ponle nombre a tu guerrero");
-            String nameWizard1 = scanner.nextLine();
-            //Wizard wizard1 = new Wizard(nameWizard1);
+            System.out.println("Ponle nombre a tu mago:");
+            String name = scanner.nextLine();
+            return new Wizard(name);
         } else {
             System.out.println("Invalid choice. Please respond with 'w' for Warrior or 'm' for Mage.");
+            return createCharacter(scanner); // Llamar recursivamente si la entrada es inválida
         }
-
-
-        scanner.close();
     }
 }
