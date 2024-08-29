@@ -1,4 +1,6 @@
 package main;
+import java.util.Random;
+import java.util.UUID;
 
 public abstract class Character implements Attacker {
     private String Id;
@@ -11,6 +13,7 @@ public abstract class Character implements Attacker {
         if(hp <= 0){
             hp = 1;
         }
+        this.Id = generateId();
         this.name = name;
         this.hp = hp;
     }
@@ -52,4 +55,23 @@ public abstract class Character implements Attacker {
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+
+    public boolean getIsAlive() {
+        return this.isAlive;
+    }
+
+    //podria ser mas CORTO -- RETOCAR
+    public String generateId() {
+        return UUID.randomUUID().toString();
+    }
+
+    //PREGUNTAR JARKO
+    public int generateHp() {
+        return new Random().nextInt(101) + 100;
+    }
+
+
+
+    //Variable llamada  id de tipo de datos  string, generada automáticamente (miembro privado)
+    //Variable llamada  hp de tipo de dato  int, aleatoria entre 100-200 para guerreros y 50-100 para magos, representando los puntos de salud (Miembro Privado)
 }
