@@ -10,6 +10,7 @@ public class Wizard extends Character{
         super(name, new Random().nextInt(51) + 50);
         this.mana = new Random().nextInt(41) + 10;
         this.intelligence = new Random().nextInt(50) + 1;
+        //prueba
     }
 
     public int getMana() {
