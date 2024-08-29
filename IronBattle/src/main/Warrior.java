@@ -8,7 +8,6 @@ public class Warrior extends Character {
 
     // constructor
     public Warrior(String name) {
-        //super(name, hp); PREGUNTAR JARKO
         super(name, new Random().nextInt(101) + 100);
         this.stamina = new Random().nextInt(41) + 10; // Stamina entre 10-50
         this.strength = new Random().nextInt(10) + 1;  // Strength entre 1-10

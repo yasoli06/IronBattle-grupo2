@@ -6,10 +6,10 @@ public class Wizard extends Character{
     private int mana;
     private int intelligence;
 
-    public Wizard(String name, int hp, int mana, int intelligence) {
-        super(name, hp);
-        this.mana = mana;
-        this.intelligence = intelligence;
+    public Wizard(String name) {
+        super(name, new Random().nextInt(51) + 50);
+        this.mana = new Random().nextInt(41) + 10;
+        this.intelligence = new Random().nextInt(50) + 1;
     }
 
     public int getMana() {
@@ -51,7 +51,6 @@ public class Wizard extends Character{
                 System.out.println("With the weak attack, you have recovered 1 mana. Now you have " + this.mana + " mana.");
             }
         }
-
 
         if (enemy.getHp() <= 0) {
             System.out.println("The character " + enemy.getName() + " has been defeated.");
