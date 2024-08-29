@@ -36,9 +36,14 @@ public class Main {
         } else if ("m".equalsIgnoreCase(userInput)) {
             System.out.println("You have chosen the Mage.");
 
-            System.out.println("Ponle nombre a tu guerrero");
+            System.out.println("Ponle nombre a tu Mage");
             String nameWizard1 = scanner.nextLine();
-            //Wizard wizard1 = new Wizard(nameWizard1);
+            Wizard wizard1 = new Wizard(nameWizard1);
+
+            System.out.println("Warrior created with Name: " + wizard1.getName() +
+                    ", HP: " + wizard1.getHp() +
+                    ", Strength: " + wizard1.getMana() +
+                    ", Stamina: " + wizard1.getIntelligence());
         } else {
             System.out.println("Invalid choice. Please respond with 'w' for Warrior or 'm' for Mage.");
         }
