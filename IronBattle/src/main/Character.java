@@ -48,16 +48,12 @@ public abstract class Character implements Attacker {
         }
     }
 
-    public boolean isAlive() {
-        return isAlive;
-    }
-
-    public void setAlive(boolean alive) {
-        isAlive = alive;
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
 
     public boolean getIsAlive() {
-        return this.isAlive;
+        return isAlive;
     }
 
     //podria ser mas CORTO -- RETOCAR
@@ -70,6 +66,7 @@ public abstract class Character implements Attacker {
         return new Random().nextInt(101) + 100;
     }
 
+    public abstract void reset();
 
 
     //Variable llamada  id de tipo de datos  string, generada automáticamente (miembro privado)

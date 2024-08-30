@@ -3,6 +3,10 @@ package main;
 import java.util.Random;
 
 public class Wizard extends Character{
+    private int initialHp;
+    private int initialMana;
+    private int initialIntelligence;
+
     private int mana;
     private int intelligence;
 
@@ -10,8 +14,19 @@ public class Wizard extends Character{
         super(name, new Random().nextInt(51) + 50);
         this.mana = new Random().nextInt(41) + 10;
         this.intelligence = new Random().nextInt(50) + 1;
+
+        // Guardar los valores iniciales
+        this.initialHp = this.getHp();
+        this.initialMana = this.mana;
+        this.initialIntelligence = this.intelligence;
     }
 
+    public void reset() {
+        this.setHp(initialHp);
+        this.mana = initialMana;
+        this.intelligence = initialIntelligence;
+        this.setIsAlive(true);
+    }
     public int getMana() {
         return mana;
     }

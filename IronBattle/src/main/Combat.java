@@ -10,21 +10,27 @@ public class Combat {
     }
 
     public void startBattle() {
-        while (player1.getIsAlive() && player2.getIsAlive()) {
-            System.out.println("\nTurno de " + player1.getName());
-            player1.attack(player2);
+        int round = 1;
+        boolean battleOver = false;
 
-            if (!player2.getIsAlive()) break;
-
-            System.out.println("\nTurno de " + player2.getName());
+        while (!battleOver) {
+            System.out.println("\n--- Round " + round + " ---");
+            player1.attack(player2); // atacan los 2 a la vez
             player2.attack(player1);
-        }
 
-        System.out.println("\nEl combate ha terminado.");
-        if (player1.getIsAlive()) {
-            System.out.println(player1.getName() + " es el ganador!");
-        } else {
-            System.out.println(player2.getName() + " es el ganador!");
+            if (!player1.getIsAlive() && !player2.getIsAlive()) {
+                System.out.println("The battle ends in a draw! Restarting the battle...\n");
+                player1.reset();  // Reiniciar Player 1
+                player2.reset();  // Reiniciar Player 2
+                round = 0; // Reiniciar las rondas
+            } else if (!player1.getIsAlive()) {
+                System.out.println("Player 2 wins! " + player2.getName() + " is victorious!");
+                battleOver = true;
+            } else if (!player2.getIsAlive()) {
+                System.out.println("Player 1 wins! " + player1.getName() + " is victorious!");
+                battleOver = true;
+            }
+            round++;
         }
     }
-}
+    }

@@ -15,6 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Character player1 = createCharacter(scanner);
+        System.out.println("Player1 done, create the Player2.");
         Character player2 = createCharacter(scanner);
 
         System.out.println("Player 1: " + player1.getName() + " is ready for battle!");
@@ -34,12 +35,12 @@ public class Main {
 
         if ("w".equalsIgnoreCase(userInput)) {
             System.out.println("You have chosen the Warrior.");
-            System.out.println("Ponle nombre a tu guerrero:");
+            System.out.println("Name your warrior:");
             String name = scanner.nextLine();
             return new Warrior(name);
         } else if ("m".equalsIgnoreCase(userInput)) {
             System.out.println("You have chosen the Mage.");
-            System.out.println("Ponle nombre a tu mago:");
+            System.out.println("Name your wizard:");
             String name = scanner.nextLine();
             return new Wizard(name);
         } else {

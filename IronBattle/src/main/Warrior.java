@@ -3,6 +3,11 @@ package main;
 import java.util.Random;
 
 public class Warrior extends Character {
+   // creamos variables para guardar los valores iniciales
+    private int initialHp;
+    private int initialStamina;
+    private int initialStrength;
+
     private int stamina;
     private int strength;
 
@@ -11,6 +16,19 @@ public class Warrior extends Character {
         super(name, new Random().nextInt(101) + 100);
         this.stamina = new Random().nextInt(41) + 10; // Stamina entre 10-50
         this.strength = new Random().nextInt(10) + 1;  // Strength entre 1-10
+
+        // Guardar los valores iniciales
+        this.initialHp = this.getHp();
+        this.initialStamina = this.stamina;
+        this.initialStrength = this.strength;
+    }
+
+//este metodo nos permite reiniciar la batalla sin crear nuevos personajes
+    public void reset() {
+        this.setHp(initialHp);
+        this.stamina = initialStamina;
+        this.strength = initialStrength;
+        this.setIsAlive(true);
     }
 
     public int getStamina() {
