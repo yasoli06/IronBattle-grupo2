@@ -20,8 +20,6 @@ public class Main {
         System.out.println("Player 1: " + player1.getName() + " is ready for battle!");
         System.out.println("Player 2: " + player2.getName() + " is ready for battle!");
 
-        // Here is where you could start the battle simulation between player1 and player2
-        // We add turn-based combat simulation
         Combat combat = new Combat(player1, player2);
         combat.startBattle();
 
