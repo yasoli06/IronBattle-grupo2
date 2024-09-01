@@ -1,4 +1,4 @@
-package main;
+package IronBattle.src.main;
 
 import java.util.Random;
 
@@ -38,17 +38,17 @@ public class Warrior extends Character {
                 damage = this.strength;
                 enemy.setHp(enemy.getHp() - damage); // Aplica daño completo al enemigo
                 this.stamina -= 5;  // Consume 5 puntos de stamina
-                System.out.println("You have performed a heavy attack and dealt " + damage + " damage.");
+                System.out.println(this.getName()+" have performed a heavy attack and dealt " + damage + " damage.");
                 System.out.println("Opponent's remaining health points: " + enemy.getHp());
-                System.out.println("You have spent 5 stamina points, you have " + this.stamina + " remaining.");
+                System.out.println(this.getName()+" have spent 5 stamina points, you have " + this.stamina + " remaining.");
 
             } else { // Ataque débil o si no hay suficiente stamina para un ataque pesado
                 damage = this.strength / 2;
                 enemy.setHp(enemy.getHp() - damage); // Aplica la mitad del daño al enemigo
                 this.stamina += 1;  // Recupera 1 punto de stamina
-                System.out.println("You have performed a weak attack and dealt " + damage + " damage.");
+                System.out.println(this.getName()+" have performed a weak attack and dealt " + damage + " damage.");
                 System.out.println("Opponent's remaining health points: " + enemy.getHp());
-                System.out.println("With the weak attack, you have recovered 1 stamina. Now you have " + this.stamina + " stamina.");
+                System.out.println("With the weak attack, "+this.getName()+" have recovered 1 stamina. Now you have " + this.stamina + " stamina.");
             }
         }
 

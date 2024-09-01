@@ -1,4 +1,4 @@
-package main;
+package IronBattle.src.main;
 
 import java.util.Random;
 
@@ -39,16 +39,16 @@ public class Wizard extends Character{
                 damage = this.intelligence;
                 enemy.setHp(enemy.getHp() - damage); // Aplica daño completo al enemigo
                 this.mana -= 5;  // Consume 5 puntos de mana
-                System.out.println("You have performed a fireball and dealt " + damage + " damage.");
+                System.out.println(this.getName()+" have performed a fireball and dealt " + damage + " damage.");
                 System.out.println("Opponent's remaining health points: " + enemy.getHp());
-                System.out.println("You have spent 5 mana points, you have " + this.mana + " remaining.");
+                System.out.println(this.getName()+" have spent 5 mana points, you have " + this.mana + " remaining.");
             } else { // golpe de bastón(staff strike) o si no hay suficiente mana para una Bola de fuego
                 damage = 2;
                 enemy.setHp(enemy.getHp() - damage); // Aplica 2 de daño al enemigo
                 this.mana += 1;  // Recupera 1 punto de mana
-                System.out.println("You have performed a staff strike and dealt " + damage + " damage.");
+                System.out.println(this.getName()+" have performed a staff strike and dealt " + damage + " damage.");
                 System.out.println("Opponent's remaining health points: " + enemy.getHp());
-                System.out.println("With the weak attack, you have recovered 1 mana. Now you have " + this.mana + " mana.");
+                System.out.println("With the weak attack, "+this.getName()+" have recovered 1 mana. Now you have " + this.mana + " mana.");
             }
         }
 
