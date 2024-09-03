@@ -1,38 +1,36 @@
-package main;
+package IronBattle.src.main;
 
 import java.util.Random;
 
 public class DarkElf extends Character {
-    // Variables para guardar valores iniciales
+
     private int initialHp;
     private int initialMana;
-    private int initialEnergiaMaldita;
-    private int initialTurnosMaldito;
+    private int initialCursedEnergy;
+    private int initialCursedTurns;
 
     private int mana;
-    private int energiaMaldita;
-    private int turnosMaldito;
-    private int attack; // Añadido para manejar el ataque base
+    private int cursedEnergy;
+    private int cursedTurns;
+    private int attack;
 
-    // Constructor
     public DarkElf(String name) {
-        super(name, new Random().nextInt(101) + 150); // HP entre 150-250
-        this.mana = new Random().nextInt(41) + 10; // Mana entre 10-50
-        this.energiaMaldita = new Random().nextInt(50) + 1; // Energía maldita entre 1-50
-        this.attack = 2; // Ataque base para un ataque débil
+        super(name, new Random().nextInt(101) + 150); // HP between 150-250
+        this.mana = new Random().nextInt(41) + 10; // Mana between 10-50
+        this.cursedEnergy = new Random().nextInt(50) + 1; // Cursed energy between 1-50
+        this.attack = 2; // Base attack for a weak attack
 
-        // Guardar valores iniciales
         this.initialHp = this.getHp();
         this.initialMana = this.mana;
-        this.initialEnergiaMaldita = this.energiaMaldita;
-        this.initialTurnosMaldito = this.turnosMaldito;
+        this.initialCursedEnergy = this.cursedEnergy;
+        this.initialCursedTurns = this.cursedTurns;
     }
 
     public void reset() {
         this.setHp(initialHp);
         this.mana = initialMana;
-        this.energiaMaldita = initialEnergiaMaldita;
-        this.turnosMaldito = initialTurnosMaldito;
+        this.cursedEnergy = initialCursedEnergy;
+        this.cursedTurns = initialCursedTurns;
         this.setIsAlive(true);
         System.out.println("The character " + this.getName() + " has been reset.");
     }
@@ -45,12 +43,12 @@ public class DarkElf extends Character {
         this.mana = mana;
     }
 
-    public int getEnergiaMaldita() {
-        return energiaMaldita;
+    public int getCursedEnergy() {
+        return cursedEnergy;
     }
 
-    public void setEnergiaMaldita(int energiaMaldita) {
-        this.energiaMaldita = energiaMaldita;
+    public void setCursedEnergy(int cursedEnergy) {
+        this.cursedEnergy = cursedEnergy;
     }
 
     public int getAttack() {
@@ -63,48 +61,45 @@ public class DarkElf extends Character {
 
     public void attack(Character enemy) {
         Random rand = new Random();
-        boolean powerfulAttack = rand.nextBoolean(); // Decide si el ataque es poderoso o débil
+        boolean powerfulAttack = rand.nextBoolean();
         int damage;
 
-
-        if (enemy.getIsAlive()) { // Solo ataca si el enemigo está vivo
+        if (enemy.getIsAlive()) {
             if (this.mana >= 5 && powerfulAttack) {
-                damage = this.energiaMaldita; // Daño base del ataque poderoso
-                enemy.setHp(enemy.getHp() - damage); // Aplica daño
-                this.mana -= 5; // Consume mana
-                System.out.println(this.getName() + " ha lanzado una maldición y ha infligido " + damage + " puntos de daño.");
-                System.out.println("El enemigo está maldito y en el siguiente turno perderá 1 HP adicional.");
-                System.out.println("Puntos de salud restantes del oponente: " + enemy.getHp());
-                System.out.println(this.getName() + " ha gastado 5 puntos de mana.");
-                System.out.println("Mana restante: " + this.mana);
+                damage = this.cursedEnergy;
+                enemy.setHp(enemy.getHp() - damage);
+                this.mana -= 5;
+                System.out.println(this.getName() + " has cast a curse and inflicted " + damage + " damage.");
+                System.out.println("The enemy is cursed and will lose 1 additional HP next turn.");
+                System.out.println("Opponent's remaining health points: " + enemy.getHp());
+                System.out.println(this.getName() + " has spent 5 mana points.");
+                System.out.println("Remaining mana: " + this.mana);
 
-                //enemy.setHp(enemy.getHp() - 1); // Aplica daño adicional por la maldición
-                //System.out.println("The opponent " + enemy.getName() + " ha perdido 1 HP por la maldición.");
-                turnosMaldito = 2;
-            } else { // Ataque débil si no hay suficiente mana
-                damage = this.getAttack(); // Usa el valor de ataque actualizado
-                enemy.setHp(enemy.getHp() - damage); // Aplica daño
-                this.mana += 1; // Recupera mana
-                System.out.println(this.getName() + " ha lanzado un ataque mágico y ha infligido " + damage + " puntos de daño.");
-                System.out.println("Puntos de salud restantes del oponente: " + enemy.getHp());
-                System.out.println("Con el ataque mágico débil, " + this.getName() + " ha recuperado 1 punto de mana.");
-                System.out.println("Mana actual: " + this.mana);
+                cursedTurns = 2;
+            } else {
+                damage = this.getAttack();
+                enemy.setHp(enemy.getHp() - damage);
+                this.mana += 1;
+                System.out.println(this.getName() + " has cast a magical attack and inflicted " + damage + " damage.");
+                System.out.println("Opponent's remaining health points: " + enemy.getHp());
+                System.out.println("With the weak magical attack, " + this.getName() + " has recovered 1 mana point.");
+                System.out.println("Current mana: " + this.mana);
             }
 
-            if (turnosMaldito > 0) {
+            if (cursedTurns > 0) {
                 enemy.setHp(enemy.getHp() - 1);
-                System.out.println("The opponent " + enemy.getName() + " ha perdido 1 HP por la maldición.");
-                turnosMaldito--;
+                System.out.println("The opponent " + enemy.getName() + " has lost 1 HP due to the curse.");
+                cursedTurns--;
             }
         }
 
         if (enemy.getHp() <= 0) {
-            System.out.println("El personaje " + enemy.getName() + " ha sido derrotado.");
+            System.out.println("The character " + enemy.getName() + " has been defeated.");
         }
     }
+
     @Override
     public void attack(Character enemy, boolean isDaytime) {
 
     }
-
 }

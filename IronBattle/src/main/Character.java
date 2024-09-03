@@ -1,4 +1,4 @@
-package main;
+package IronBattle.src.main;
 import java.util.Random;
 import java.util.UUID;
 
@@ -41,7 +41,7 @@ public abstract class Character implements Attacker {
 
     public void setHp(int hp) {
         this.hp = hp;
-        // Actualiza el estado de isAlive basado en el valor de hp
+
         if(this.hp > 0) {
             this.isAlive = true;
         } else {

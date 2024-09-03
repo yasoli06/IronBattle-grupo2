@@ -1,4 +1,4 @@
-package main;
+package IronBattle.src.main;
 
 import java.util.Scanner;
 
