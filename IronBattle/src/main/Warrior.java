@@ -1,4 +1,4 @@
-package IronBattle.src.main;
+package main;
 
 import java.util.Random;
 
@@ -29,6 +29,11 @@ public class Warrior extends Character {
         this.stamina = initialStamina;
         this.strength = initialStrength;
         this.setIsAlive(true);
+    }
+
+    @Override
+    public void attack(Character enemy, boolean isDaytime) {
+
     }
 
     public int getStamina() {

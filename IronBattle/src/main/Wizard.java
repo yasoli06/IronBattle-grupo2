@@ -1,4 +1,4 @@
-package IronBattle.src.main;
+package main;
 
 import java.util.Random;
 
@@ -27,6 +27,12 @@ public class Wizard extends Character{
         this.intelligence = initialIntelligence;
         this.setIsAlive(true);
     }
+
+    @Override
+    public void attack(Character enemy, boolean isDaytime) {
+
+    }
+
     public int getMana() {
         return mana;
     }
@@ -43,7 +49,6 @@ public class Wizard extends Character{
         this.intelligence = intelligence;
     }
 
-    int damage = 0;
 
     public void attack(Character enemy) {
         Random rand = new Random();
