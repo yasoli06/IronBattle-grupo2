@@ -20,13 +20,14 @@ public class Main {
         System.out.println("Player 1: " + player1.getName() + " is ready for battle!");
         System.out.println("Player 2: " + player2.getName() + " is ready for battle!");
 
+
         Combat combat = new Combat(player1, player2);
         combat.startBattle();
 
         scanner.close();
     }
 
-    private static Character createCharacter(Scanner scanner) {
+    public static Character createCharacter(Scanner scanner) {
         System.out.println("Which will be your champion? A Warrior or a Mage. Respond with 'w' for Warrior or 'm' for Mage.");
         String userInput = scanner.nextLine().trim();
 
@@ -42,7 +43,7 @@ public class Main {
             return new Wizard(name);
         } else {
             System.out.println("Invalid choice. Please respond with 'w' for Warrior or 'm' for Mage.");
-            return createCharacter(scanner); // Recursively call if the input is invalid
+            return createCharacter(scanner);
         }
     }
 }
