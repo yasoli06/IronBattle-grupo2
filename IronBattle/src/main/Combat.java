@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class Combat {
     private Character player1;
     private Character player2;
-    private boolean isDaytime; // Variable para determinar si es de día o de noche
+    private boolean isDaytime;
 
     public Combat(Character player1, Character player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.isDaytime = new Random().nextBoolean(); // Decide aleatoriamente si es de día o de noche
+        this.isDaytime = new Random().nextBoolean();
 
-        // Mensaje de escenario según el momento del día
+
         if (isDaytime) {
             System.out.println("The two champions meet in an open field at midday, the sun shining brightly.");
         } else {

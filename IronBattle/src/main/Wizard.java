@@ -52,20 +52,20 @@ public class Wizard extends Character{
 
     public void attack(Character enemy) {
         Random rand = new Random();
-        boolean fireball = rand.nextBoolean(); // Decidir aleatoriamente si el ataque es pesado o débil
+        boolean fireball = rand.nextBoolean();
         int damage = 0;
-        if (enemy.getIsAlive()) { // Solo atacar si el enemigo está vivo
-            if (this.mana >= 5 && fireball) { // Bola de fuego si hay suficiente mana y se decide Bola de fuego
+        if (enemy.getIsAlive()) {
+            if (this.mana >= 5 && fireball) {
                 damage = this.intelligence;
-                enemy.setHp(enemy.getHp() - damage); // Aplica daño completo al enemigo
-                this.mana -= 5;  // Consume 5 puntos de mana
+                enemy.setHp(enemy.getHp() - damage);
+                this.mana -= 5;
                 System.out.println(this.getName()+" have performed a fireball and dealt " + damage + " damage.");
                 System.out.println("Opponent's remaining health points: " + enemy.getHp());
                 System.out.println(this.getName()+" have spent 5 mana points, you have " + this.mana + " remaining.");
-            } else { // golpe de bastón(staff strike) o si no hay suficiente mana para una Bola de fuego
+            } else {
                 damage = 2;
-                enemy.setHp(enemy.getHp() - damage); // Aplica 2 de daño al enemigo
-                this.mana += 1;  // Recupera 1 punto de mana
+                enemy.setHp(enemy.getHp() - damage);
+                this.mana += 1;
                 System.out.println(this.getName()+" have performed a staff strike and dealt " + damage + " damage.");
                 System.out.println("Opponent's remaining health points: " + enemy.getHp());
                 System.out.println("With the weak attack, "+this.getName()+" have recovered 1 mana. Now you have " + this.mana + " mana.");
