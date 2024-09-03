@@ -1,4 +1,4 @@
-package IronBattle.src.main;
+package main;
 import java.util.Random;
 import java.util.UUID;
 
