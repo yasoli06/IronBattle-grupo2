@@ -9,7 +9,7 @@ public class Combat {
         this.player2 = player2;
     }
 
-    public void startBattle() {
+    public void startBattle() { // mientras ambos personajes estén vivos
         while (player1.getIsAlive() && player2.getIsAlive()) {
             System.out.println("\nTurno de " + player1.getName());
             player1.attack(player2);
