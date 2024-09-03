@@ -7,6 +7,7 @@ public abstract class Character implements Attacker {
     private String name;
     private int hp;
     private boolean isAlive = true;
+    private int attack;
 
     // Constructor
     public Character(String name, int hp) {
@@ -68,6 +69,13 @@ public abstract class Character implements Attacker {
 
     public abstract void reset();
 
+    public int getAttack() {
+        return attack;
+    }
 
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
 
+    public abstract void attack(Character enemy, boolean isDaytime);
 }

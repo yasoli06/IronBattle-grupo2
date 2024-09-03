@@ -31,6 +31,11 @@ public class Warrior extends Character {
         this.setIsAlive(true);
     }
 
+    @Override
+    public void attack(Character enemy, boolean isDaytime) {
+
+    }
+
     public int getStamina() {
         return stamina;
     }
